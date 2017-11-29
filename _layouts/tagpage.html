@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="page">
+<div class="tags">
+    <h2>Posts tagged: <i class="fa fa-tag"></i> {{ page.tag }}</h2>
+    <hr></hr>
+    <table>
+        <tbody>
+{% for post in site.tags[page.tag] %}
+<tr>
+    <td>
+<a href="{{ post.url }}">{{ post.title }}</a>
+    </td>
+    <td>
+  <i class="fa fa-calendar"></i> {{ post.date | date_to_string }}
+    </td>
+   
+{% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>

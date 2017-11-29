@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date"><i class="fa fa-calendar"></i> Posted on <span class="post-date-bold">{{ page.date | date_to_string }}</span></span>
+
+{% if page.tags.size > 0 %}
+    <span class="post-tags">
+        {% for tag in page.tags %}
+        {% capture tag_name %}{{tag}}{% endcapture %}
+        <i class="fa fa-tag"></i> <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
+        {% endfor %}
+        </span>
+{% endif %}
+
+<hr />
+
+  {{ content }}
+</div>
+
+
+<!--
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ site.baseurl }}{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+-->
