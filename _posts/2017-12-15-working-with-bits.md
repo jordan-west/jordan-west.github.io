@@ -84,9 +84,9 @@ In the example above, we can tell that the `SDL_WINDOW_BORDERLESS` flag is not s
 The bitwise AND operator results in a `1` if both bits are `1`, and results in a `0` otherwise:
 
 ```c++
-int x = 5;     // 0101
-int y = 12;    // 1100
-int z = x & y; // 0100
+int x = 5;     // x = 0101
+int y = 12;    // y = 1100
+int z = x & y; // z = 0100
 ```
 
 The bitwise AND operator is very useful for checking whether particular bits are set in a pattern. Continuing our SDL example from above: 
@@ -118,9 +118,9 @@ An interesting application of the bitwise AND operator is examining whether a nu
 The bitwise XOR (exclusive OR) operator results in a `0` if both bits are the same, and results in a `1` otherwise:
 
 ```c++
-int x = 5;     // 0101
-int y = 12;    // 1100
-int z = x ^ y; // 1001
+int x = 5;     // x = 0101
+int y = 12;    // y = 1100
+int z = x ^ y; // z = 1001
 ```
 
 The bitwise XOR operator is useful when you need to toggle a bit on or off:
@@ -152,8 +152,8 @@ FLAGS_RESULT = FLAGS_RESULT ^ SDL_WINDOW_RESIZABLE;
 The bitwise NOT operator flips bit values from `0` to `1`, and from `1` to `0`:
 
 ```c++
-int x = 5;  // 0101
-int z = ~x; // 1010
+int x = 5;  // x = 0101
+int z = ~x; // z = 1010
 ```
 
 ### Logical left shift operator
@@ -161,9 +161,9 @@ int z = ~x; // 1010
 The left shift operator shifts all bits in a number to the left by some amount:
 
 ```c++
-int x = 2;     // 0010 = 2
-int y = x << 1 // 0100 = 4
-int z = x << 2 // 1000 = 8
+int x = 2;     // x = 0010 = 2
+int y = x << 1 // y = 0100 = 4
+int z = x << 2 // z = 1000 = 8
 ```
 
 If you examine the values above closely you can see that for each shift to the left the number is multiplied by 2. A multiplication by 2 is not guaranteed because logical shifts do not preserve sign bits or distinguish between a number's exponent and mantissa. Bits may be lost in a logical left shift if they exceed the leftmost bit.
@@ -196,9 +196,9 @@ if (x & 1 << 3)
 The right shift operator shifts all bits in a number to the right by some amount:
 
 ```c++
-int x = 4;      // 0100 = 4
-int y = x >> 1; // 0010 = 2
-int z = x >> 2; // 0001 = 1
+int x = 4;      // x = 0100 = 4
+int y = x >> 1; // y = 0010 = 2
+int z = x >> 2; // z = 0001 = 1
 ```
 
 If you examine the values above closely you can see that for each shift to the right the number is divided by 2. For the same reasons stated above in the left shift operator description, a division by 2 cannot be relied on for the logical right shift operator.
