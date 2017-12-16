@@ -27,8 +27,8 @@ We can see that these are 32 bit values, but we only care about the lowest 16 bi
 
 ```c++
 /*
- * The rightmost 16 bits are the lowest and we can
- * see that they are equal in this example.
+ * The lowest 16 bits are on the right.
+ * They are equal in this example.
  */
 0000111010100010 [1110001101001010]
 0101010101010010 [1110001101001010]
@@ -63,8 +63,7 @@ The bitwise OR operator is very useful when you want to set certain states and s
 // See how each flag is selected in the last parameter:
 SDL_Window* window = SDL_CreateWindow("Window", 0, 0, 640, 480, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIDDEN);
 
-// Each flag is associated with a distinct bit pattern such as:
-// (We set bit patterns with the 0b prefix in C++14)
+// Each flag is associated with a distinct bit:
 enum SDL_WindowFlags
 {
     SDL_WINDOW_OPENGL     = 0b0001;
@@ -73,8 +72,12 @@ enum SDL_WindowFlags
     SDL_WINDOW_BORDERLESS = 0b1000;
 };
 
-// FLAGS_RESULT = 0b0111
-int FLAGS_RESULT = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIDDEN;
+// (We set bit patterns with the 0b prefix in C++14)
+
+int FLAGS_RESULT = SDL_WINDOW_OPENGL |    // 0b0001
+                   SDL_WINDOW_RESIZABLE | // 0b0010
+                   SDL_WINDOW_HIDDEN;     // 0b0100
+                                          // 0b0111
 ```
 
 In the example above, we can tell that the `SDL_WINDOW_BORDERLESS` flag is not set because the leftmost bit is not set in `FLAGS_RESULT`. But we know that the other three flags are set by looking at their corresponding bits. In the next section, we'll see how we can check whether bits are set.
@@ -93,12 +96,11 @@ The bitwise AND operator is very useful for checking whether particular bits are
 
 ```c++
 // Check whether the RESIZABLE flag is set:
-if (FLAGS_RESULT & SDL_WINDOW_RESIZABLE == SDL_WINDOW_RESIZABLE)
+if (FLAGS_RESULT & SDL_WINDOW_RESIZABLE != 0)
 {
 }
 
 // In C++ expressions are true if they have a non-zero value.
-// This expression is only non-zero when the correct bit is set.
 // Therefore we can shorthand this to:
 if (FLAGS_RESULT & SDL_WINDOW_RESIZABLE)
 {
@@ -166,7 +168,11 @@ int y = x << 1 // y = 0100 = 4
 int z = x << 2 // z = 1000 = 8
 ```
 
-If you examine the values above closely you can see that for each shift to the left the number is multiplied by 2. A multiplication by 2 is not guaranteed because logical shifts do not preserve sign bits or distinguish between a number's exponent and mantissa. Bits may be lost in a logical left shift if they exceed the leftmost bit.
+If you examine the values above closely you can see that for each shift to the left the number is multiplied by 2. A multiplication by 2 is not guaranteed because:
+
+* Logical shifts do not preserve sign bits.
+* Logical shifts do not distinguish between a number's exponent and mantissa (this is a concern for floating point numbers).
+* Bits may be lost if they exceed the leftmost bit.
 
 The left shift operator is a useful tool for manipulating individual bits in a number:
 
