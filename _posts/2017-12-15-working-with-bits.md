@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Working with Bits 
+title: Working with bits 
 comments: true
 tags: tutorial c++
 ---
