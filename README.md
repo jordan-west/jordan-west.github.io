@@ -1,6 +1,6 @@
 ## Site
 
-[https://jordanlwest.github.io](https://jordanlwest.github.io)
+[https://jordan-west.github.io](https://jordan-west.github.io)
 
 ## Dependencies
 

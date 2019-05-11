@@ -2,18 +2,16 @@ permalink: pretty
 markdown: kramdown
 
 title: "Jordan West's Blog"
-description: 'Computer Science graduate. Interest in artificial intelligence and how things learn. Avatar art by <a href="http://twitter.com/scribjellyfish">@scribjellyfish</a>'
+description: 'Software Engineer. Interest in artificial intelligence and how things learn. Avatar art by <a href="http://twitter.com/scribjellyfish">@scribjellyfish</a>'
 paginate: 5
 excerpt_separator: '<!--more-->'
 
 author:
   name: Jordan West
-  github: jordanlwest
-  google_analytics_id: UA-110403942-1
-  google_analytics_url: jordanlwest.github.io
+  github: jordan-west
 
 github:
-    repo: https://github.com/jordanlwest/jordanlwest.github.io
+    repo: https://github.com/jordan-west/jordan-west.github.io
 
 version: 1.0.0
 
